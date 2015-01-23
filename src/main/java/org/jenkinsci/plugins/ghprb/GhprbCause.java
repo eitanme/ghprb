@@ -13,6 +13,7 @@ import java.net.URL;
  */
 public class GhprbCause extends Cause{
 	private final String commit;
+        private final String baseCommit;
 	private final int pullID;
 	private final boolean merged;
 	private final String targetBranch;
@@ -24,12 +25,13 @@ public class GhprbCause extends Cause{
     private final String commentBody;
     private final GitUser commitAuthor;
 
-    public GhprbCause(String commit, int pullID, boolean merged, 
+    public GhprbCause(String commit, String baseCommit, int pullID, boolean merged, 
     		String targetBranch, String sourceBranch, String authorEmail, 
     		String title, URL url, GHUser triggerSender, String commentBody,
     		GitUser commitAuthor){
     	
 		this.commit = commit;
+		this.baseCommit = baseCommit;
 		this.pullID = pullID;
 		this.merged = merged;
 		this.targetBranch = targetBranch;
@@ -50,6 +52,10 @@ public class GhprbCause extends Cause{
 
 	public String getCommit() {
 		return commit;
+	}
+
+	public String getBaseCommit() {
+		return baseCommit;
 	}
 	
 	public boolean isMerged() {

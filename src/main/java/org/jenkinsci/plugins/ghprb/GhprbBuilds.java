@@ -50,7 +50,7 @@ public class GhprbBuilds {
             sb.append(" Build triggered.");
         }
 
-        GhprbCause cause = new GhprbCause(pr.getHead(), pr.getId(), 
+        GhprbCause cause = new GhprbCause(pr.getHead(), pr.getBase(), pr.getId(), 
         		pr.isMergeable(), pr.getTarget(), pr.getSource(), 
         		pr.getAuthorEmail(), pr.getTitle(), pr.getUrl(),
         		triggerSender, commentBody, pr.getCommitAuthor());

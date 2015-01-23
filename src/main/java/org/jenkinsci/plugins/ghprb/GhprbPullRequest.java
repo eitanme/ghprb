@@ -38,6 +38,7 @@ public class GhprbPullRequest {
     private String title;
     private Date updated;
     private String head;
+    private String base;
     private boolean mergeable;
     private String reponame;
     private String target;
@@ -61,6 +62,7 @@ public class GhprbPullRequest {
         id = pr.getNumber();
         updated = pr.getUpdatedAt();
         head = pr.getHead().getSha();
+        base = pr.getBase().getSha();
         title = pr.getTitle();
         author = pr.getUser();
         reponame = repo.getName();
@@ -379,6 +381,10 @@ public class GhprbPullRequest {
 
     public String getHead() {
         return head;
+    }
+
+    public String getBase() {
+        return base;
     }
 
     public boolean isMergeable() {
